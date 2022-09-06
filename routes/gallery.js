@@ -42,7 +42,7 @@ galleryRouter.post('/',(req, res)=>{
 //delete by id
 galleryRouter.delete('/:id', (req, res)=>{
     let id = +req.params.id;
-    let index = data.findIndex((df)=>df.id === id);
+    let index = data.findIndex((df)=>parseInt(df.id) === parseInt(id));
     if(index>=0){
         data.splice(index, 1);  
         res.redirect('/gallery');
