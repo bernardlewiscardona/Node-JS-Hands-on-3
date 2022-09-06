@@ -1,20 +1,6 @@
 const express = require('express');
 const recordRouter = express.Router();
 
-// //update
-// recordRouter.put('/update/:id',(req, res)=>{
-//     let id = +req.params.id;
-//     let body = req.body;
-//     let index = data.findIndex((df)=>df.id === id);
-//     if(index >=0){
-//         let updateData = {id:id, ...body};
-//         data[index] =  updateData;
-//         res.json(updateData);
-//         console.log(updateData);
-//     }else{
-//         res.status(404).send('Id does not exist');
-//     }
-// });
 
 // //delete by id
 // recordRouter.delete('/delete/:id', (req, res)=>{
@@ -27,6 +13,11 @@ const recordRouter = express.Router();
 //         res.status(404).send('ID not found');
 //     }
 // });
+recordRouter.get('/', (req, res)=>{
+    res.render('record', {test:'Ejs is working and waving 👋'});
+});
+
+
 
 module.exports = recordRouter;
 
