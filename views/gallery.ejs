@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Gallery</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-beige p-3 shadow">
+    <div class="container-fluid d-flex">
+        <a class="navbar-brand" href="#"><img class="align-top" src="#" alt="logo.jpg"><span class="fs-1 mt-5 fw-semibold font-black">Sample Website</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 nav-font">
+                <li class="nav-item">
+                    <a class="nav-link fs-5 fw-normal"  href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-5 fw-normal"  href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-5 fw-normal  active" href="/gallery">Gallery</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section class="p-5">
+    <div class="container">
+    <div class="d-flex flex-wrap gap-2">
+        <%for(var items of data){%>
+                    <div class="card p-1" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">ID: <%= items.id%></h5>
+                            <p class="card-text">
+                            <ul type="none">
+                                <li><%= items.name%></li>
+                                <!-- <li><%= items.company%></li>
+                                <li><%= items.jobDesrciption%></li> -->
+                            </ul>
+                        </p>
+                            <a href="" class="btn btn-primary">View</a>
+                            <a href="#" class="btn btn-primary">Edit</a>
+                            <a href="#" class="btn btn-primary">Delete</a>
+                        </div>
+                    </div>         
+        <%}%>   
+            </div>
+        </div>
+    </div>
+</section>
+<section class="p-5">
+    <div class="container">
+        <form method="POST" action="/gallery">
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">ID</label>
+                <input type="text" class="form-control" name="id">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Name</label>
+                <input type="text" class="form-control" name="name">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Company</label>
+                <input type="text" class="form-control" name="company">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Job Description</label>
+                <input type="text" class="form-control"  name="jobdescription">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+    </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
