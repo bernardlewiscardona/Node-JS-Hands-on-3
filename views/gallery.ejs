@@ -43,9 +43,11 @@
                                 <li><%= items.jobDesrciption%></li> -->
                             </ul>
                         </p>
-                            <a href="" class="btn btn-primary">View</a>
+                            <a href=<%="/gallery/" +items.id%> class="btn btn-primary ">View</a>
                             <a href="#" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-primary">Delete</a>
+                            <form action="gallery/<%= items.id%>/?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-danger" value="Delete">
+                            </form>
                         </div>
                     </div>         
         <%}%>   

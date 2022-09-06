@@ -1,5 +1,6 @@
 //Import or Initalization
 const express = require('express');
+const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const recordRouter = require('./routes/record');
 const homeRouter = require('./routes/home');
@@ -8,6 +9,7 @@ const galleryRouter = require('./routes/gallery');
 const app = express();
 
 //static file s
+app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use('/style', express.static(__dirname+'public/css'));
 app.use('/js', express.static(__dirname+'public/js'));

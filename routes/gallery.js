@@ -22,7 +22,7 @@ galleryRouter.get('/:id',(req, res)=>{
     });
     //verify the data by id
     if(check){
-        res.render('view', {records: check});
+        res.render('record', {records: check});
     }else{
         res.status(404).send('ID not found!');
     }
@@ -36,9 +36,19 @@ galleryRouter.post('/',(req, res)=>{
     data.push(body);
     console.log(data);
     //data.push(param);
-    res.redirect('gallery');
+    res.redirect('/gallery');
 });
 
-
+//delete by id
+galleryRouter.delete('/:id', (req, res)=>{
+    let id = +req.params.id;
+    let index = data.findIndex((df)=>df.id === id);
+    if(index>=0){
+        data.splice(index, 1);  
+        res.redirect('/gallery');
+    }else{
+        res.status(404).send('ID not found');
+    }
+});
 
 module.exports = galleryRouter;
